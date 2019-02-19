@@ -86,8 +86,8 @@
             @endif
 
             <div class="content">
-                {{-- Place for animated logo --}}
-             
+
+
 
 
 
@@ -95,12 +95,12 @@
 
 
                 <div class="title m-b-md">
-                    GloCal Worldwide
+                Welcome in My Restaurant
                 </div>
 
 
 
-                
+
 
 
 
