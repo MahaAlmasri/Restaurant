@@ -15,32 +15,31 @@
     </div><br />
   @endif
   {{-- href to create category --}}
-  <a href="{{ route('products.create')}}" class="btn btn-primary">Products Admin+  </a></td>
+  <a href="{{ route('dishes.create')}}" class="btn btn-primary">Add a New Dish  </a></td>
 
   <table class="table table-striped">
     <thead>
         <tr>
-          <td>ID</td>
           <td>Name</td>
           <td>Category</td>
           <td colspan="2">Action</td>
         </tr>
     </thead>
     <tbody>
-        @foreach($products as $product)
+        @foreach($dishes as $dish)
         <tr>
-            <td>{{$product->id}}</td>
-            <td>{{$product->productName}}</td>
 
-            <td>{{$product->productCategory}}</td>
-            <td>{{$product->productDescription}}</td>
-            <td>{{$product->productPrice}}</td>
-            <td>{{$product->productImage}}</td>
+            <td>{{$dish->name}}</td>
+
+            <td>{{$dish->category}}</td>
+            <td>{{$dish->description}}</td>
+            <td>{{$dish->price}}</td>
+            <td>{{$dish->image}}</td>
 
 
-            <td><a href="{{ route('products.edit',$product->id)}}" class="btn btn-primary">Edit</a></td>
+            <td><a href="{{ route('dishes.edit',$dish->id)}}" class="btn btn-primary">Edit</a></td>
             <td>
-                <form action="{{ route('products.destroy', $product->id)}}" method="post">
+                <form action="{{ route('dishes.destroy', $dish->id)}}" method="post">
                   @csrf
                   @method('DELETE')
                   <button class="btn btn-danger" type="submit">Delete</button>

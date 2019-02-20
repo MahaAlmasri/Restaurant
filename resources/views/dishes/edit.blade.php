@@ -20,62 +20,39 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('products.update', $product->id) }}">
+      <form method="post" action="{{ route('dishes.update', $dish->id) }}">
         @method('PATCH')
         @csrf
 
 
         <div class="form-group">
-          <label for="name">Product name:</label>
-          <input type="text" class="form-control" name="productName" value={{ $product->productName }} />
+          <label for="name">Dish name:</label>
+          <input type="text" class="form-control" name="name" value={{ $dish->name }} />
         </div>
 
 
         <div class="form-group">
-          <label for="category">Product category:</label>
-          <input type="integer" class="form-control" name="productCategory" value={{ $product->productCategory }} />
+          <label for="category">Dish category:</label>
+          <input type="integer" class="form-control" name="category" value={{ $dish->category }} />
         </div>
 
 
         <div class="form-group">
-          <label for="description">Product description:</label>
-          <input type="text" class="form-control" name="productDescription" value={{ $product->productDescription }} />
+          <label for="description">Dish description:</label>
+          <input type="text" class="form-control" name="description" value={{ $dish->description }} />
         </div>
 
 
         <div class="form-group">
-          <label for="price">Product price:</label>
-          <input type="float" class="form-control" name="productPrice" value={{ $product->producPrice }} />
+          <label for="price">Dish price:</label>
+          <input type="float" class="form-control" name="price" value={{ $dish->price }} />
         </div>
 
 
         <div class="form-group">
-            <label for="image">Product image:</label>
-            <input type="text" class="form-control" name="productImage" value={{ $product->productPrice }} />
+            <label for="image">Dish image:</label>
+            <input type="text" class="form-control" name="image" value={{ $dish->image }} />
           </div>
-
-
-
-
-
-
-{{--
-        $table->string('productName');
-        $table->integer('productCategory');
-        $table->string('productDescription');
-        $table->float('productPrice');
-        $table->string('productImage');
-
- --}}
-
-
-
-
-
-
-
-
-
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

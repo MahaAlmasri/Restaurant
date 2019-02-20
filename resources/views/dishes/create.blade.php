@@ -8,7 +8,7 @@
 </style>
 <div class="card uper">
   <div class="card-header">
-    Add Product
+    Add Dish
   </div>
   <div class="card-body">
     @if ($errors->any())
@@ -20,33 +20,33 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('products.store') }}">
+      <form method="post" action="{{ route('dishes.store') }}">
 
 
         <div class="form-group">
               @csrf
-              <label for="name">Product name:</label>
-              <input type="text" class="form-control" name="productName"/>
+              <label for="name">Dish name:</label>
+              <input type="text" class="form-control" name="name"/>
           </div>
 
           <div class="form-group">
-                <label for="category">Product Category:</label>
-                <input type="integer" class="form-control" name="productCategory"/>
+                <label for="category">Dish Category:</label>
+                <input type="integer" class="form-control" name="category"/>
           </div>
 
           <div class="form-group">
-                <label for="description">Product description:</label>
-                <input type="text" class="form-control" name="productDescription"/>
+                <label for="description">Dish description:</label>
+                <input type="text" class="form-control" name="description"/>
           </div>
 
           <div class="form-group">
-                <label for="price">Product price:</label>
-                <input type="float" class="form-control" name="productPrice"/>
+                <label for="price">Dish price:</label>
+                <input type="float" class="form-control" name="price"/>
           </div>
 
           <div class="form-group">
-                <label for="image">Product image:</label>
-                <input type="text" class="form-control" name="productImage"/>
+                <label for="image">Dish image:</label>
+                <input type="text" class="form-control" name="image"/>
           </div>
 
 
