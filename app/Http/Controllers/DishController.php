@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Product;
+use App\Dish;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class DishController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class ProductController extends Controller
     {
         //
        //--------------------------------------------------------------------
-       $products = Product::all();
-       return view('products.index', compact('products'));
+       $dishs = dish::all();
+       return view('dishs.index', compact('dishs'));
        //--------------------------------------------------------------------
 
     }
@@ -30,7 +30,7 @@ class ProductController extends Controller
     public function create()
     {
         //--------------------------------------------------------------------
-        return view('products.create');
+        return view('dishs.create');
         //--------------------------------------------------------------------
 
     }
@@ -46,20 +46,20 @@ class ProductController extends Controller
         //
         //----------------------------------------------------------------
         $request->validate([
-            'productName'=>'required',
-            'productPrice'=> 'required'
+            'name'=>'required',
+            'price'=> 'required'
              ]);
 
-          $share = new Product([
-            'productName' => $request->get('productName'),
-            'productCategory' => $request->get('productCategory'),
-            'productDescription' => $request->get('productDescription'),
-            'productPrice' => $request->get('productPrice'),
-            'productImage' => $request->get('productImage')
+          $share = new dish([
+            'name' => $request->get('name'),
+            'category' => $request->get('category'),
+            'description' => $request->get('description'),
+            'price' => $request->get('price'),
+            'image' => $request->get('image')
 
           ]);
           $share->save();
-          return redirect('/products')->with('success', 'Product has been added');
+          return redirect('/dishs')->with('success', 'dish has been added');
         //----------------------------------------------------------------
 
 
@@ -69,10 +69,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\dish  $dish
      * @return \Illuminate\Http\Response
      */
-    public function show(Product $product)
+    public function show(Dish $dish)
     {
         //
     }
@@ -80,16 +80,16 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Product  $product
+     * @param  \App\dish  $dish
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
         //
         //--------------------------------------------------------------------
-        $product = Product::find($id);
+        $dish = Dish::find($id);
 
-        return view('products.edit', compact('product'));
+        return view('dishs.edit', compact('dish'));
         //--------------------------------------------------------------------
 
     }
@@ -98,31 +98,31 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Product  $product
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
 
 
-//    public function update(Request $request, Product $product)
+//    public function update(Request $request, dish $dish)
     public function update(Request $request, $id)
 
     {
     //------------------------------------------------------------------------------------------------
     $request->validate([
-        //'productName'=>'required',
-        'productPrice'=> 'required'
+        'name'=>'required',
+        'price'=> 'required'
               ]);
 
-        $product = Product::find($id);
-        $product->productName = $request->get('productName');
-        $product->productCategory = $request->get('productCategory');
-        $product->productDescription = $request->get('productDescription');
-        $product->productPrice = $request->get('productPrice');
-        $product->productImage = $request->get('productImage');
+        $dish = dish::find($id);
+        $dish->name = $request->get('name');
+        $dish->category = $request->get('category');
+        $dish->description = $request->get('description');
+        $dish->price = $request->get('price');
+        $dish->image = $request->get('image');
 
-        $product->save();
+        $dish->save();
 
-        return redirect('/products')->with('success', 'Product has been updated');
+        return redirect('/dishs')->with('success', 'dish has been updated');
      //------------------------------------------------------------------------------------------------
 
 
@@ -133,16 +133,16 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Product  $product
+     * @param  \App\Dish  $dish
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
         //------------------------------------------------------------------------------------------------
-        $product = Product::find($id);
-        $product->delete();
-        return redirect('/products')->with('success', 'Product has been deleted Successfully');
+        $dish = Dish::find($id);
+        $dish->delete();
+        return redirect('/dishs')->with('success', 'dish has been deleted Successfully');
         //------------------------------------------------------------------------------------------------
 
 

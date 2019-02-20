@@ -26,12 +26,10 @@
                 <a class="navbar-brand" href="{{ url('/categories') }}">
                     Categories
                 </a>
-                 <a class="navbar-brand" href="{{ url('/products') }}">
+                 <a class="navbar-brand" href="{{ url('/dishes') }}">
                     Products
                 </a>
-                <a class="navbar-brand" href="{{ url('/stores') }}">
-                    Stores
-                </a>
+
                 <a class="navbar-brand" href="{{ url('/orders') }}">
                     Orders
                 </a>

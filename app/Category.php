@@ -11,4 +11,9 @@ class Category extends Model
         'categoryName',
         'categoryDescription',
     ];
+    public function dishes()
+{
+	return $this->hasMany('App\dishes');
+}
+
 }

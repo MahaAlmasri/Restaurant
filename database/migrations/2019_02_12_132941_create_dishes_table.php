@@ -17,9 +17,9 @@ class CreateDishesTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('category');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->float('price');
-            $table->string('image');
+            $table->string('image')->nullable();
 
             $table->timestamps();
         });
@@ -32,6 +32,6 @@ class CreateDishesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('dishes');
     }
 }

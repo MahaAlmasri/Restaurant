@@ -15,16 +15,16 @@ class CategoriesTableSeeder extends Seeder
         //------------------------------------------------------------------------
         DB::table('categories')->insert(
             [
-                ['categoryName' => 'Boeken',
-                 'categoryDescription' => 'Books and e-books',
+                ['categoryName' => 'Meat dishes',
+                 'categoryDescription' => 'halal meat dishes',
                 ],
 
-                ['categoryName' => 'Games',
-                'categoryDescription' => 'PC, Playstation, Xbox',
+                ['categoryName' => 'soups',
+                'categoryDescription' => 'differant types',
                 ],
 
-                ['categoryName' => 'Drank',
-                'categoryDescription' => 'Alcohol and alcohol free',
+                ['categoryName' => 'salads',
+                'categoryDescription' => 'Starters & salads dishes',
                 ]
 
             ]);
