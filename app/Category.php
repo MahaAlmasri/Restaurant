@@ -9,11 +9,11 @@ class Category extends Model
     //
     protected $fillable = [
         'categoryName',
-        'categoryDescription',
+        'categoryDescription'
     ];
     public function dishes()
 {
-	return $this->hasMany('App\dishes');
+	return $this->hasMany('App\Dish');
 }
 
 }

@@ -24,7 +24,7 @@
     <div class="container">
         @if(isset($details))
             <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-        <h2> Products </h2>
+
               {{-- href="{{ route('orderDetails.create',$order->id)}}"  --}}
              {{--  <script>
                     $("#amount").change(function() {
@@ -40,7 +40,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($details as $product)
+                @foreach($details as $dish)
                 <tr>
                     <form method="POST" action="" >
                     <input name="order_id"  value="" hidden >

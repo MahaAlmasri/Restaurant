@@ -16,7 +16,7 @@ class CreateDishesTable extends Migration
         Schema::create('dishes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->integer('category');
+            $table->integer('category_id');
             $table->string('description')->nullable();
             $table->float('price');
             $table->string('image')->nullable();

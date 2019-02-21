@@ -7,6 +7,10 @@
   .uper {
     margin-top: 40px;
   }
+img {
+    width:250px;
+    height:250px;
+}
 </style>
 <div class="uper">
   @if(session()->get('success'))
@@ -14,43 +18,28 @@
       {{ session()->get('success') }}
     </div><br />
   @endif
-  {{-- href to create category --}}
 
-  <table class="table table-striped">
-    <thead>
-        <tr>
 
-          <td>Name</td>
-          <td>Category</td>
-          <td colspan="2">Action</td>
-        </tr>
-    </thead>
-    <tbody>
+
+
+
+         <div class="container">
             @if(isset($details))
+            <h3>The Most Delicious Dishes </h3> <br><br>
             @foreach($details as $dish)
-        <tr>
 
-            <td>{{$dish->name}}</td>
+            <div> <img src="{{$dish->image}}" alt="{{$dish->image}}" > </img></div> <br>
+            <div><h4>{{$dish->name}}</h4></div>
+            <div><h5>{{$dish->price}}</h5></div>
+            <div><h5>{{$dish->category->categoryName}}</h5></div>
 
-            <td>{{$dish-category}}</td>
-            <td>{{$dish->description}}</td>
-            <td>{{$dish->price}}</td>
-            <td>{{$dish->image}}</td>
+            <div>{{$dish->description}}</div>
+            <div><a href="{{ route('orderDetails.create') }}" class="btn btn-primary">Order it</a></div>
 
-
-{{--             <td><a href="{{ route('dishs.edit',$dish->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
-                <form action="{{ route('dishs.destroy', $dish->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td>
- --}}
-      </tr>
+         <hr/>
         @endforeach
         @endif
-    </tbody>
-  </table>
-<div>
+
+         </div>
+
 @endsection

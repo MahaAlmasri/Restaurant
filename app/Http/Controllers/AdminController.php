@@ -12,6 +12,7 @@ class AdminController extends Controller
     }
     public function admin()
     {
+        dd('123');
         return view('admin');
     }
 }

@@ -33,17 +33,19 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Product $product)
+    public function store(Dish $dish)
     {
         $request->validate([
             'user_id'=>'required'
              ]);
 
           $order = new Order([
-            'user_id' => {{Auth::user()->id}}
+            'user_id' => {{Auth::user()->id}},
+
 
           ]);
           $order->save();
+          $order->orderDetails::first()->dish=$dish;
           return redirect('/ordersDetails.create', $product);
     }
 

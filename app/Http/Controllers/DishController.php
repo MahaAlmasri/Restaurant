@@ -16,8 +16,8 @@ class DishController extends Controller
     {
         //
        //--------------------------------------------------------------------
-       $dishs = dish::all();
-       return view('dishs.index', compact('dishs'));
+       $dishes = dish::all();
+       return view('dishes.index', compact('dishes'));
        //--------------------------------------------------------------------
 
     }
@@ -30,7 +30,7 @@ class DishController extends Controller
     public function create()
     {
         //--------------------------------------------------------------------
-        return view('dishs.create');
+        return view('dishes.create');
         //--------------------------------------------------------------------
 
     }
@@ -52,14 +52,14 @@ class DishController extends Controller
 
           $share = new dish([
             'name' => $request->get('name'),
-            'category' => $request->get('category'),
+            'category_id' => $request->get('category_id'),
             'description' => $request->get('description'),
             'price' => $request->get('price'),
             'image' => $request->get('image')
 
           ]);
           $share->save();
-          return redirect('/dishs')->with('success', 'dish has been added');
+          return redirect('/dishes')->with('success', 'dish has been added');
         //----------------------------------------------------------------
 
 
@@ -89,7 +89,7 @@ class DishController extends Controller
         //--------------------------------------------------------------------
         $dish = Dish::find($id);
 
-        return view('dishs.edit', compact('dish'));
+        return view('dishes.edit', compact('dish'));
         //--------------------------------------------------------------------
 
     }
@@ -115,14 +115,14 @@ class DishController extends Controller
 
         $dish = dish::find($id);
         $dish->name = $request->get('name');
-        $dish->category = $request->get('category');
+        $dish->category_id = $request->get('category_id');
         $dish->description = $request->get('description');
         $dish->price = $request->get('price');
         $dish->image = $request->get('image');
 
         $dish->save();
 
-        return redirect('/dishs')->with('success', 'dish has been updated');
+        return redirect('/dishes')->with('success', 'dish has been updated');
      //------------------------------------------------------------------------------------------------
 
 
@@ -142,7 +142,7 @@ class DishController extends Controller
         //------------------------------------------------------------------------------------------------
         $dish = Dish::find($id);
         $dish->delete();
-        return redirect('/dishs')->with('success', 'dish has been deleted Successfully');
+        return redirect('/dishes')->with('success', 'dish has been deleted Successfully');
         //------------------------------------------------------------------------------------------------
 
 

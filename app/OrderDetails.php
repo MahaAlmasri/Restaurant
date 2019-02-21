@@ -17,8 +17,8 @@ class OrderDetails extends Model
     {
     	return $this->belongsTo('App\Order');
     }
-    public function product()
+    public function dish()
     {
-    	return $this->belongsTo('App\Product');
+    	return $this->belongsTo('App\Dish');
     }
 }

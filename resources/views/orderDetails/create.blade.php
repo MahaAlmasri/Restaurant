@@ -24,8 +24,8 @@
 
         <div class="form-group">
               @csrf
-              <label for="name">Product Name: {{ $product->name }}</label>
-              <input type="text" class="form-control" name="name" value={{ $product->id }} hidden />
+              <label for="name">Dish Name: {{ $dish->name }}</label>
+              <input type="text" class="form-control" name="name" value={{ $dish->id }} hidden />
           </div>
           <div class="form-group">
             <label for="number">Amount:</label>
@@ -33,8 +33,8 @@
         </div>
 
           <div class="form-group">
-              <label for="address">Price: value={{ $product->price }}</label>
-              <input type="text" class="form-control" name="price" value={{ $product->price }}/>
+              <label for="address">Price: value={{ $dish->price }}</label>
+              <input type="text" class="form-control" name="price" value={{ $dish->price }}/>
           </div>
           <div class="form-group">
             <label for="address">order:</label>

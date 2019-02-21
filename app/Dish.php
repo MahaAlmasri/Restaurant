@@ -9,7 +9,7 @@ class Dish extends Model
     //
     protected $fillable = [
         'name',
-        'category',
+        'category_id',
         'description',
         'price',
         'image',
