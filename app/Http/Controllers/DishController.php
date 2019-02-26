@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Category;
 use App\Dish;
 use Illuminate\Http\Request;
 
@@ -30,7 +30,8 @@ class DishController extends Controller
     public function create()
     {
         //--------------------------------------------------------------------
-        return view('dishes.create');
+        $categories = Category::all();
+        return view('dishes.create', compact('categories'));
         //--------------------------------------------------------------------
 
     }

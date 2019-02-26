@@ -34,7 +34,8 @@ img {
             <div><h5>{{$dish->category->categoryName}}</h5></div>
 
             <div>{{$dish->description}}</div>
-            <div><a href="{{ route('orderDetails.create') }}" class="btn btn-primary">Order it</a></div>
+
+            <div><a href="/orders/{{ $dish->id}}/create" class="btn btn-primary">Order it</a></div>
 
          <hr/>
         @endforeach

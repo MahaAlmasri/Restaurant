@@ -31,7 +31,12 @@
 
           <div class="form-group">
                 <label for="category">Dish Category:</label>
-                <input type="integer" class="form-control" name="category"/>
+                <select name="category_id" class="form-control">
+
+                    @foreach ($categories as $category)
+                    <option value="{{$category->id}}"> {{ $category->categoryName }}</option>
+                    @endforeach
+                </select>
           </div>
 
           <div class="form-group">

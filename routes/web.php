@@ -21,7 +21,7 @@ Route::get('/dishes/show', function () {
 });
 
 Route::resource('categories', 'CategoryController');
-//Route::resource('dishes', 'DishController');
+Route::resource('dishes', 'DishController');
 Route::resource('favorites', 'FavoriteController');
 
 
@@ -46,15 +46,25 @@ Route::get('/admin', 'AdminController@admin')
 
 
     Route::resource('payments', 'PaymentController');
-    Route::resource('orders', 'OrderController');
+   // Route::resource('orders', 'OrderController');
+
+    Route::get('/orders/{dish}/create','OrderController@create');
     Route::resource('orderDetails', 'OrderDetailsController');
+    //Route::post('/orderDetails/index','OrderDetailsController@store');
+    /* Route::get('/orders/create',function(){
+        $dish=Input::get('dish');
+        dd(Input::get('dish'));
+        return view('/orders/create');
 
-
+    });*/
 Route::any('/search',function(){
+
     $q = Input::get ( 'q' );
     $dishes = Dish::where('name','LIKE','%'.$q.'%')->get();
+    if (isset($dish))
+    dd(123);
     if(count($dishes) > 0)
-    return view('/orders/create')->withDetails($dishes)->withQuery ( $q );
+    return view('/orders/create')->withDetails($dishes);
     else return view ('/orders/create')->withMessage('No dishes found. Try to search again !');
 });
 

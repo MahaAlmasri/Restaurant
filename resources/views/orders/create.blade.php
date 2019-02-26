@@ -7,6 +7,16 @@
     margin-top: 40px;
   }
 </style>
+ <script>
+    $('document').ready(function(){
+    $('#amount').on('keyup',function(){
+ var amount = $(this).val();
+ var price = $('#price').val();
+ $("#totalprice").html(amount*price);
+ });
+});
+ </script>
+
 <div class="card uper">
   <div class="card-header">
     Add an Order
@@ -22,46 +32,66 @@
       </div><br />
     @endif
     <div class="container">
-        @if(isset($details))
-            <p> The Search results for your query <b> {{ $query }} </b> are :</p>
-
-              {{-- href="{{ route('orderDetails.create',$order->id)}}"  --}}
-             {{--  <script>
-                    $("#amount").change(function() {
-                 $("#totalprice").val= $("#amount").val;
-                });
-                                    </script> --}}
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Amount</th>
+                    <th>Total Price</th>
                 </tr>
             </thead>
+            <?php $count =1;?>
             <tbody>
-                @foreach($details as $dish)
-                <tr>
-                    <form method="POST" action="" >
-                    <input name="order_id"  value="" hidden >
-                    <td>{{$product->productName}}<input name="product_id"  value="{{$product->id}}" hidden ></td>
-                    <td>{{$product->productPrice}}<input name="price"  value="{{$product->productPrice}}" hidden ></td>
-                    <td><input type="number" id="amount" name="amount" value="1"></td>
-                    {{-- <td><input type="number" id="totalprice" name="totalPice" ></td> --}}
+                    @if (isset($dish))
+                    <form method="POST" action="{{ route('orderDetails.store') }}" >
+                        <tr>
+                               <input name="order_id"  value="" hidden >
+                               <td>{{$dish->name}}<input name="dish_id"  value="{{$dish->id}}" hidden ></td>
+                               <td>{{$dish->price}}<input name="price" id="price"  value="{{$dish->price}}" hidden ></td>
+                               <td><input type="number" id="amount" name="amount" value="1"></td>
+                                <td><span type="number" id="totalprice"  > </span></td>
 
-                    <td><a href="" class="btn btn-primary">Add to Order</a></td>
-                </tr>
-            </form>
+                               <td><button type="submit" class="btn btn-primary">Add To Order</button></td>
+                        </tr>
+                    </form>
+                    @endif
+
+
+        @if(isset($details))
+
+            {{-- <p> The Search results for your query <b> {{ $query }} </b> are :</p> --}}
+
+              {{-- href="{{ route('orderDetails.create',$order->id)}}"  --}}
+
+                @foreach($details as $dishDetail)
+                <form method="POST" action="{{ route('orderDetails.store') }}" >
+                    <tr>
+                    <input name="order_id"  value="0" hidden >
+                    <td>{{$dishDetail->name}}<input name="dish_id"  value="{{$dishDetail->id}}" hidden ></td>
+                    <td>{{$dishDetail->price}}<input name="price"  value="{{$dishDetail->price}}" hidden ></td>
+                    <td><input type="number" id="amount" name="amount" value="1"></td>
+                    <td><input type="number" id="totalprice" name="totalPice" ></td>
+
+                    <td><button type="submit" class="btn btn-primary">Add To Order</button></td>
+                    </tr>
+                </form>
                 @endforeach
-            </tbody>
-        </table>
+
         @endif
+        <?php $count++;?>
+
+</tr>
+        </tbody>
+
+    </table>
+
     </div>
-    <form action="/search" method="POST" role="search">
+<form action="/search" method="POST" role="search">
         {{ csrf_field() }}
         <div class="input-group">
             <input type="text" class="form-control" name="q"
-                placeholder="Search Product"> <span class="input-group-btn">
+                placeholder="Search dish"> <span class="input-group-btn">
                 <button type="submit" class="btn btn-primary">
                    Search
                 </button>

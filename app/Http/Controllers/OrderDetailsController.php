@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Dish;
 use App\orderDetails;
 use Illuminate\Http\Request;
 
@@ -22,9 +22,10 @@ class OrderDetailsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Dish $dish)
     {
-        //
+
+        return view('orderDetails.create', $dish);
     }
 
     /**
@@ -36,7 +37,32 @@ class OrderDetailsController extends Controller
     public function store(Request $request)
     {
         //
+        //----------------------------------------------------------------
+      /*   $request->validate([
+            'name'=>'required',
+            'price'=> 'required'
+             ]);*/
+             dd('123');
+             if (Session::get('order')!=null)
+             $order = new Order([
+                'user_id' => Auth::user()->id
+             ]);
+             $order->save();
+             Session::put('order', $order);
+          $orderDetail = new orderDetails([
+            'dish_id' => $request->get('dish'),
+            'amount'=> $request->get('amount'),
+             'order_id'=> $order->id,
+            'price' => $request->get('price')
+          ]);
+          $orderDetail->save();
+          return redirect('/dishes')->with('success', 'order has been added');
+        //----------------------------------------------------------------
+
+
+
     }
+
 
     /**
      * Display the specified resource.

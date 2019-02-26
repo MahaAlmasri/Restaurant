@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Dish;
 use App\Order;
 use Illuminate\Http\Request;
 
@@ -22,9 +22,10 @@ class OrderController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Dish $dish)
     {
-        return view('orders.create');
+
+        return view('/orders/create', compact('dish'));
     }
 
     /**
@@ -40,13 +41,13 @@ class OrderController extends Controller
              ]);
 
           $order = new Order([
-            'user_id' => {{Auth::user()->id}},
+            'user_id' => Auth::user()->id
 
 
           ]);
           $order->save();
           $order->orderDetails::first()->dish=$dish;
-          return redirect('/ordersDetails.create', $product);
+          return redirect('ordersDetails.create', $dish);
     }
 
     /**

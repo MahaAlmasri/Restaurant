@@ -7,6 +7,10 @@
   .uper {
     margin-top: 40px;
   }
+  img {
+width:150px;
+height:150px;
+  }
 </style>
 <div class="uper">
   @if(session()->get('success'))
@@ -22,7 +26,8 @@
         <tr>
           <td>Name</td>
           <td>Category</td>
-          <td colspan="2">Action</td>
+          <td>Price</td>
+          <td>Photo</td>
         </tr>
     </thead>
     <tbody>
@@ -31,10 +36,10 @@
 
             <td>{{$dish->name}}</td>
 
-            <td>{{$dish->category}}</td>
+            <td>{{$dish->category->categoryName}}</td>
             <td>{{$dish->description}}</td>
             <td>{{$dish->price}}</td>
-            <td>{{$dish->image}}</td>
+            <td ><img src="{{$dish->image}}"/></td>
 
 
             <td><a href="{{ route('dishes.edit',$dish->id)}}" class="btn btn-primary">Edit</a></td>
