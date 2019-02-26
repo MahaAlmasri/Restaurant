@@ -27,7 +27,9 @@ height:150px;
           <td>Name</td>
           <td>Category</td>
           <td>Price</td>
+          <td>Description</td>
           <td>Photo</td>
+
         </tr>
     </thead>
     <tbody>
@@ -35,10 +37,9 @@ height:150px;
         <tr>
 
             <td>{{$dish->name}}</td>
-
             <td>{{$dish->category->categoryName}}</td>
-            <td>{{$dish->description}}</td>
             <td>{{$dish->price}}</td>
+            <td>{{$dish->description}}</td>
             <td ><img src="{{$dish->image}}"/></td>
 
 

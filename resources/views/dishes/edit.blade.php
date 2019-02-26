@@ -32,15 +32,16 @@
 
 
         <div class="form-group">
-          <label for="category">Dish category:</label>
-          <input type="integer" class="form-control" name="category" value={{ $dish->category }} />
-        </div>
-
-
-        <div class="form-group">
-          <label for="description">Dish description:</label>
-          <input type="text" class="form-control" name="description" value={{ $dish->description }} />
-        </div>
+            <label for="category">Dish Category:</label>
+            <select name="category_id" class="form-control">
+                <option value="{{ $dish->category->id}}"> {{  $dish->category->categoryName }}</option>
+                @foreach ($categories as $category)
+                @if ($category->id!==$dish->category->id)
+                <option value="{{$category->id}}"> {{ $category->categoryName }}</option>
+                @endif
+                @endforeach
+            </select>
+      </div>
 
 
         <div class="form-group">
@@ -53,6 +54,12 @@
             <label for="image">Dish image:</label>
             <input type="text" class="form-control" name="image" value={{ $dish->image }} />
           </div>
+
+
+        <div class="form-group">
+          <label for="description">Dish description:</label>
+          <input type="text" class="form-control" name="description" value={{ $dish->description }} />
+        </div>
 
         <button type="submit" class="btn btn-primary">Update</button>
     </form>

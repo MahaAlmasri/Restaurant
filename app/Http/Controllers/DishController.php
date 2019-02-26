@@ -88,9 +88,10 @@ class DishController extends Controller
     {
         //
         //--------------------------------------------------------------------
+        $categories = Category::all();
         $dish = Dish::find($id);
 
-        return view('dishes.edit', compact('dish'));
+        return view('dishes.edit', compact('dish'), compact ('categories'));
         //--------------------------------------------------------------------
 
     }
