@@ -28,7 +28,7 @@ img {
             <h3>The Most Delicious Dishes </h3> <br><br>
             @foreach($details as $dish)
 
-            <div> <img src="{{$dish->image}}" alt="{{$dish->image}}" > </img></div> <br>
+            <div> <img src="{{$dish->image}}" alt="{{$dish->image}}" /> </div> <br>
             <div><h4>{{$dish->name}}</h4></div>
             <div><h5>{{$dish->price}}</h5></div>
             <div><h5>{{$dish->category->categoryName}}</h5></div>

@@ -1,9 +1,13 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use App\Dish;
 use App\orderDetails;
+use App\Order;
 use Illuminate\Http\Request;
+use Session;
+use Auth;
 
 class OrderDetailsController extends Controller
 {
@@ -42,17 +46,21 @@ class OrderDetailsController extends Controller
             'name'=>'required',
             'price'=> 'required'
              ]);*/
-             dd('123');
-             if (Session::get('order')!=null)
+
+            if (Session::get('order')==null)
              $order = new Order([
                 'user_id' => Auth::user()->id
              ]);
+            else {
+                $order = Session::get('order');
+            }
              $order->save();
              Session::put('order', $order);
           $orderDetail = new orderDetails([
-            'dish_id' => $request->get('dish'),
+              'order_id'=> $order->id,
+            'dish_id' => $request->get('dish_id'),
             'amount'=> $request->get('amount'),
-             'order_id'=> $order->id,
+
             'price' => $request->get('price')
           ]);
           $orderDetail->save();

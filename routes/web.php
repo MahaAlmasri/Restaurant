@@ -47,9 +47,9 @@ Route::get('/admin', 'AdminController@admin')
 
     Route::resource('payments', 'PaymentController');
    // Route::resource('orders', 'OrderController');
+ // Route::resource('orders', 'OrderController');
 
-    Route::get('/orders/{dish}/create','OrderController@create');
-    Route::resource('orderDetails', 'OrderDetailsController');
+   // Route::resource('orderDetails', 'OrderDetailsController');
     //Route::post('/orderDetails/index','OrderDetailsController@store');
     /* Route::get('/orders/create',function(){
         $dish=Input::get('dish');
@@ -76,10 +76,10 @@ Route::get('/orderDetails/{product}/edit','OrderDetailsController@edit');
 Route::patch('/orderDetails/{product}','OrderDetailsController@update');
 Route::delete('/orderDetails/{product}','OrderDetailsController@destroy'); */
 
-/* Route::get('/orders/index','OrderController@index');
-Route::post('/orders/index','OrderController@store');
-Route::get('/orders/create','OrderController@create');
+Route::get('/orders/index','OrderController@index');
+Route::post('/orders/create','OrderDetailsController@store')->name('order');
+Route::get('/orders/{dish}/create','OrderController@create');
 Route::get('/orders/{order}','OrderController@show');
 Route::get('/orders/{order}/edit','OrderController@edit');
 Route::patch('/orders/{order}','OrderController@update');
-Route::delete('/orders/{order}','OrderController@destroy'); */
+Route::delete('/orders/{order}','OrderController@destroy');

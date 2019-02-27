@@ -34,8 +34,9 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Dish $dish)
+    public function store(Request $request)
     {
+
         $request->validate([
             'user_id'=>'required'
              ]);
