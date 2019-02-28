@@ -21,10 +21,10 @@
       </div><br />
     @endif
       <form method="post" action="{{ route('dishes.store') }}">
-
+       @csrf
 
         <div class="form-group">
-              @csrf
+
               <label for="name">Dish name:</label>
               <input type="text" class="form-control" name="name"/>
           </div>

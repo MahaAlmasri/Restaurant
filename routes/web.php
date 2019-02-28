@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Input;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/dishes/show', function () {
+Route::get('/home', function () {
     $dishes=Dish::all();
-    return view('/dishes.show')->withDetails($dishes);
-});
+    return view('/home')->withDetails($dishes)->withMessage('You are logged in!');
+})->name('home');
 
 Route::resource('categories', 'CategoryController');
 Route::resource('dishes', 'DishController');
@@ -31,7 +31,7 @@ Route::resource('favorites', 'FavoriteController');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/auth/{user}/edit','UserController@edit');
 
