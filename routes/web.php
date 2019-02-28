@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Input;
 */
 
 Route::get('/', function () {
+    Session::put('order', null);
     return view('welcome');
 });
 Route::get('/home', function () {

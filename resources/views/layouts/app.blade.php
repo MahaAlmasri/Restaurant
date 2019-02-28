@@ -23,9 +23,9 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+               {{--  <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
-                </a>
+                </a> --}}
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -69,8 +69,8 @@
                                     </form>
                                 </div>
                             </li>
-                            <li class="nav-item">  <a class="navbar-brand" href="{{ url('/cart') }}">
-                                <img style="width:25px;height:25px" src=" {{ asset('images/cart.jpg') }} ">ShoppingCart </img>
+                            <li class="nav-item">  <a class="navbar-brand" href="{{ url('/order') }}">Your Current Order
+                                {{-- <img style="width:25px;height:25px" src=" {{ asset('images/cart.jpg') }} "> </img> --}}
                             </a>
                             </li>
                         @endguest

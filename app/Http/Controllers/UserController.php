@@ -38,7 +38,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->get('password'));
 
         $user->save();
-        return redirect('/showDishes')->with('success','your profile is changed');
+        return redirect('/home')->with('success','your profile is changed');
 
     }
 }

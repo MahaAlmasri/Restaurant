@@ -64,7 +64,7 @@ class OrderDetailsController extends Controller
             'price' => $request->get('price')
           ]);
           $orderDetail->save();
-          return redirect('/dishes')->with('success', 'order has been added');
+          return redirect('/home')->with('success', 'order has been added');
         //----------------------------------------------------------------
 
 
