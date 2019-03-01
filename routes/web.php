@@ -21,11 +21,13 @@ Route::get('/home', function () {
     return view('/home')->withDetails($dishes)->withMessage('You are logged in!');
 })->name('home');
 
-Route::resource('categories', 'CategoryController');
+
 Route::resource('dishes', 'DishController');
 Route::resource('favorites', 'FavoriteController');
-
-
+Route::resource('categories', 'CategoryController');
+Route::get('/favorites/{dish}','FavoriteController@store');
+Route::get('/favorites','FavoriteController@index');
+//Route::delete('/favorites/{favorite}','FavoriteController@destroy');
 
 
 

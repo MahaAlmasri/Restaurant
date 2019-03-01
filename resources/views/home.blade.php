@@ -29,7 +29,10 @@
     <div>{{$dish->description}}</div>
 
     <div><a href="/orders/{{ $dish->id}}/create" class="btn btn-primary">Order it</a></div>
+ {{-- <link rel="shortcut icon" href="/path/to/icons/favicon.ico"> --}}
 
+ <div><a href="/favorites/{{$dish->id}}" class="btn btn-primary">Love it?</a></div>
+    {{-- https://www.iconfinder.com/icons/675969/favorite_heart_like_love_icon --}}
  <hr/>
 @endforeach
 @endif

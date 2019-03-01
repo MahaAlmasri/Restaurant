@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Favorite;
 use Illuminate\Http\Request;
+use Auth;
+use App\Dish;
 
 class FavoriteController extends Controller
 {
@@ -14,7 +16,16 @@ class FavoriteController extends Controller
      */
     public function index()
     {
-        $products = Favorite::all();
+        $favorites = Favorite::where('user_id', Auth::user()->id)
+                        ->get();
+
+       /*  foreach($favorites as $favorite)
+        {
+            $dish = Dish::find($favorite->dish_id);
+
+            $dishes.Add($dish);
+
+        } */
         return view('favorites.index', compact('favorites'));
     }
 
@@ -25,7 +36,8 @@ class FavoriteController extends Controller
      */
     public function create()
     {
-        return view('favorites.create');
+
+
     }
 
     /**
@@ -34,20 +46,20 @@ class FavoriteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(Dish $dish)
+    {dd('jj');
         $request->validate([
             'user_id'=>'required',
-            'product_id'=> 'required'
+            'dish_id'=> 'required'
              ]);
 
           $share = new Favorite([
-            'user_id'=>$request->get('user_id'),
-            'product_id' => $request->get('product_id')
+            'user_id'=>Auth::user()->id,
+            'dish_id' => $request->get('dish_id')
 
           ]);
           $share->save();
-          return redirect('/products')->with('success', 'your product has been added to your favorite list');
+          return redirect('/home')->with('success', 'your meal has been added to your favorite list');
 
     }
 
@@ -93,7 +105,7 @@ class FavoriteController extends Controller
      * @param  \App\Favorite  $favorite
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Favorite $favorite)
+    public function destroy($id)
     {
         $favorite = Favorite::find($id);
         $favorite->delete();
