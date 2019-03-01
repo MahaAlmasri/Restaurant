@@ -23,14 +23,14 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/categories') }}">
+                <a class="navbar-brand" href="/categories">
                     Categories
                 </a>
-                 <a class="navbar-brand" href="{{ url('/dishes') }}">
-                    Products
+                 <a class="navbar-brand" href="/dishes">
+                    Dishes
                 </a>
 
-                <a class="navbar-brand" href="{{ url('/orders') }}">
+                <a class="navbar-brand" href="/orders">
                     Orders
                 </a>
 

@@ -9,7 +9,7 @@ class Category extends Model
     //
     protected $fillable = [
         'categoryName',
-        'categoryDescription'
+        'categoryDescription',
     ];
     public function dishes()
 {
