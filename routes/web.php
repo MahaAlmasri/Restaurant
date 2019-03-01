@@ -75,7 +75,7 @@ Route::get('/orderDetails/{product}/edit','OrderDetailsController@edit');
 Route::patch('/orderDetails/{product}','OrderDetailsController@update');
 Route::delete('/orderDetails/{product}','OrderDetailsController@destroy'); */
 
-Route::get('/orders/index','OrderController@index');
+Route::get('/orders','OrderController@index');
 Route::post('/orders/create','OrderDetailsController@store')->name('order');
 Route::get('/orders/{dish}/create','OrderController@create');
 Route::get('/orders/{order}','OrderController@show');

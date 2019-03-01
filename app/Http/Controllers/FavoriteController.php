@@ -48,7 +48,7 @@ class FavoriteController extends Controller
      */
     public function store(Dish $dish)
     {
-       
+
           $share = new Favorite([
             'user_id'=>Auth::user()->id,
             'dish_id' => $dish->id

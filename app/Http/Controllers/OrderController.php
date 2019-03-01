@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Dish;
 use App\Order;
+use Auth;
 use Illuminate\Http\Request;
 
 class OrderController extends Controller
@@ -15,6 +16,11 @@ class OrderController extends Controller
     public function index()
     {
 
+        $orders = Order::where('user_id', Auth::user()->id)
+                        ->get();
+
+
+        return view('orders.index', compact('orders'));
     }
 
     /**
