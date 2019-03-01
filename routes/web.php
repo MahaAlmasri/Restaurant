@@ -25,7 +25,7 @@ Route::get('/home', function () {
 Route::resource('dishes', 'DishController');
 Route::resource('favorites', 'FavoriteController');
 Route::resource('categories', 'CategoryController');
-Route::get('/favorites/{dish}','FavoriteController@store');
+Route::get('/favorites/{dish}/index','FavoriteController@store')->name('addtofavorite');
 Route::get('/favorites','FavoriteController@index');
 //Route::delete('/favorites/{favorite}','FavoriteController@destroy');
 

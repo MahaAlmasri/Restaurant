@@ -56,7 +56,7 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-
+                                    <a class="dropdown-item" href="/orders"> My Orders </a>
                                     <a class="dropdown-item" href="/favorites"> My Favorite Dishes </a>
                                     <a class="dropdown-item" href="/auth/{{Auth::user()->id}}/edit"> Change your Profile </a>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
@@ -70,10 +70,12 @@
                                     </form>
                                 </div>
                             </li>
+                            @if (Session::get('order')!==null)
                             <li class="nav-item">  <a class="navbar-brand" href="{{ url('/order') }}">Your Current Order
                                 {{-- <img style="width:25px;height:25px" src=" {{ asset('images/cart.jpg') }} "> </img> --}}
                             </a>
                             </li>
+                            @endif
                         @endguest
                     </ul>
                 </div>

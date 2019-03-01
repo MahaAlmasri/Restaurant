@@ -47,15 +47,11 @@ class FavoriteController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Dish $dish)
-    {dd('jj');
-        $request->validate([
-            'user_id'=>'required',
-            'dish_id'=> 'required'
-             ]);
-
+    {
+       
           $share = new Favorite([
             'user_id'=>Auth::user()->id,
-            'dish_id' => $request->get('dish_id')
+            'dish_id' => $dish->id
 
           ]);
           $share->save();
