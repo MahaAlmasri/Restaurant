@@ -50,7 +50,7 @@ Route::get('/admin', 'AdminController@admin')->name('admin');
    // Route::resource('orders', 'OrderController');
  // Route::resource('orders', 'OrderController');
 
-   // Route::resource('orderDetails', 'OrderDetailsController');
+   Route::resource('orderDetails', 'OrderDetailsController');
     //Route::post('/orderDetails/index','OrderDetailsController@store');
     /* Route::get('/orders/create',function(){
         $dish=Input::get('dish');

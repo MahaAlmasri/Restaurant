@@ -34,14 +34,6 @@
             <td>{{$order->id}}</td>
            <td>{{$order->user->name}}</td>
             <td>{{$order->created_at}}</td>
-         {{--     <td><a href="{{ route('orders.edit', $order->id)}}" class="btn btn-primary">Edit</a></td>
-            <td>
-                <form action="{{ route('orders.destroy', $order->id)}}" method="post">
-                  @csrf
-                  @method('DELETE')
-                  <button class="btn btn-danger" type="submit">Delete</button>
-                </form>
-            </td> --}}
         </tr>
     <tr>
         <td colspan="3">
@@ -88,8 +80,16 @@
                             @foreach($order->order_details as $detail)
                             <tr>
                                     <td>{{$detail->dish->name}}</td>
-                                    <td>{{$detail->amount}}</td>
+                                    <td><input type="number" id="amount" name="amount" value={{$detail->amount}} readonly></td>
                                     <td>{{$detail->price}}</td>
+                                    <td><a class="btn btn-primary">Edit</a></td>
+                                    <td>
+                                        <form action="{{ route('orderDetails.destroy', $detail->id)}}" method="post">
+                                          @csrf
+                                          @method('DELETE')
+                                          <button class="btn btn-danger" type="submit">Delete</button>
+                                        </form>
+                                    </td>
                             </tr>
                             @endforeach
                         </tbody>

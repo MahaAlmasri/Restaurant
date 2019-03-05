@@ -18,7 +18,7 @@ class OrderDetailsController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -91,7 +91,7 @@ class OrderDetailsController extends Controller
      */
     public function edit(orderDetails $orderDetails)
     {
-        //
+
     }
 
     /**
@@ -112,8 +112,10 @@ class OrderDetailsController extends Controller
      * @param  \App\orderDetails  $orderDetails
      * @return \Illuminate\Http\Response
      */
-    public function destroy(orderDetails $orderDetails)
+    public function destroy($id)
     {
-        //
+        $orderDetail = OrderDetails::find($id);
+        $orderDetail->delete();
+        return redirect()->back()->with('success', 'dish has been deleted from this order Successfully');
     }
 }
