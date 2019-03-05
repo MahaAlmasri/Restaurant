@@ -55,5 +55,5 @@ height:150px;
         @endforeach
     </tbody>
   </table>
-<div>
+</div>
 @endsection

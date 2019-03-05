@@ -20,7 +20,7 @@
         </ul>
       </div><br />
     @endif
-      <form method="post" action="{{ route('stores.update', $store->id) }}">
+      <form method="post" action="{{ route('orders.update', $order->id) }}">
         @method('PATCH')
         @csrf
         <div class="form-group">

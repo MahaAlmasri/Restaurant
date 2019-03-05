@@ -65,7 +65,8 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+
+        return view('orders.index', compact('order'));
     }
 
     /**
@@ -74,9 +75,11 @@ class OrderController extends Controller
      * @param  \App\Order  $order
      * @return \Illuminate\Http\Response
      */
-    public function edit(Order $order)
+    public function edit( $id)
     {
-        //
+        $order = Order::find($id);
+        dd('88');
+        return view('orders.edit', compact('order'));
     }
 
     /**
